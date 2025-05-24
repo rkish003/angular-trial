@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherService } from '../service/weather.service';
+import { finalize } from 'rxjs';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-weather',
@@ -7,11 +9,19 @@ import { WeatherService } from '../service/weather.service';
   styleUrl: './weather.component.css'
 })
 export class WeatherComponent {
-  city!:String;
+  isLoading=false;
+  cityControl = new FormControl('',Validators.required);
   weatherData:any;
+
   constructor(private ws:WeatherService){}  
+
   getWeather(){
-    this.ws.getWeather(this.city)
+    this.isLoading = true;
+    const city = this.cityControl.value;
+    this.ws.getWeather(city)
+    .pipe(finalize( () => {
+      this.isLoading = false;
+    })) 
     .subscribe(data => {
         this.weatherData = data;
         console.log(data);
