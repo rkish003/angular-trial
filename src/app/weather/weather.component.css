@@ -1,8 +1,8 @@
 .a{
     display:flex;
-    
     flex-direction: row;
+
 }
 .b{
-    flex:1
+    flex:1   
 }
