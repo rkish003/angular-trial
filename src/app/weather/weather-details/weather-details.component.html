@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <div>
+        <h2>{{data.name}}</h2>
+        <p>Temperature: {{data.main.temp}}</p>
+        <p>Min temp: {{data.main.temp_min}}</p>
+        <p>Max temp: {{data.main.temp_max}}</p>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+
+    <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</mat-dialog-actions>

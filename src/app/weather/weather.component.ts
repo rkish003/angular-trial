@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { WeatherService } from '../service/weather.service';
 import { finalize } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 
 @Component({
   selector: 'app-weather',
@@ -13,7 +15,9 @@ export class WeatherComponent {
   cityControl = new FormControl('',Validators.required);
   weatherData:any;
 
-  constructor(private ws:WeatherService){}  
+  constructor(private ws:WeatherService, 
+              private dialog: MatDialog
+            ){}  
 
   getWeather(){
     this.isLoading = true;
@@ -25,6 +29,9 @@ export class WeatherComponent {
     .subscribe(data => {
         this.weatherData = data;
         console.log(data);
+        this.dialog.open(WeatherDetailsComponent,{
+          data : this.weatherData
+        });
     })
   }
 }

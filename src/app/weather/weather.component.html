@@ -2,44 +2,8 @@
     <div class = "b">
         <h1>Weather application 1</h1>
         <form>
-            <input type = "text" [formControl] = "cityControl">
+            <input type = "text" [formControl] = "cityControl" placeholder="Enter city name">
             <button (click)="getWeather()">Get weather</button>
         </form>
-        <div *ngIf="weatherData">
-            <h2>{{weatherData.name}}</h2>
-            <p>Temperature: {{weatherData.main.temp}}</p>
-            <p>Min temp: {{weatherData.main.temp_min}}</p>
-            <p>Max temp: {{weatherData.main.temp_max}}</p>
-        </div>
-    </div>
-
-
-    <div class = "b">
-        <h1>Weather application 2</h1>
-        <form>
-            <input type = "text" [formControl] = "cityControl">
-            <button (click)="getWeather()">Get weather</button>
-        </form>
-        <div *ngIf="weatherData">
-            <h2>{{weatherData.name}}</h2>
-            <p>Temperature: {{weatherData.main.temp}}</p>
-            <p>Min temp: {{weatherData.main.temp_min}}</p>
-            <p>Max temp: {{weatherData.main.temp_max}}</p>
-        </div>
-    </div>
-
-
-    <div class = "b">
-        <h1>Weather application 3</h1>
-        <form>
-            <input type = "text" [formControl] = "cityControl">
-            <button (click)="getWeather()">Get weather</button>
-        </form>
-        <div *ngIf="weatherData">
-            <h2>{{weatherData.name}}</h2>
-            <p>Temperature: {{weatherData.main.temp}}</p>
-            <p>Min temp: {{weatherData.main.temp_min}}</p>
-            <p>Max temp: {{weatherData.main.temp_max}}</p>
-        </div>
     </div>
 </div>
